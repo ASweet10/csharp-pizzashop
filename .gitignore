@@ -1,0 +1,52 @@
+# Build Results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+
+# ASP.NET runtime files
+*.db
+*.db-shm
+*.db-wal
+
+# Secrets & configs
+appsettings.Development.json
+secrets.json
+appsettings.json
+
+# Entity Framework Migrations metadata (if needed)
+_MigrationsHistory/
+
+# Logs
+*.log
+
+# VS/IDE specific
+.vscode/
+.idea/
+*.sln.docstates
+
+# Publish directory
+publish/
+
+# Rider IDE files
+.idea/
+
+# Global test results
+TestResults/
+
+# npm artifacts if you happen to have frontend bits in API
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+
+# NuGet packages (if restoring locally)
+packages/
