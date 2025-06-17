@@ -8,9 +8,9 @@ namespace PizzaApi.Controllers
     [ApiController]
     public class PizzaController : ControllerBase
     {
-        private readonly PizzaContext _context;
+        private readonly AppDbContext _context;
 
-        public PizzaController(PizzaContext context) // Constructor dependency injection
+        public PizzaController(AppDbContext context) // Constructor dependency injection
         {
             _context = context;
         }

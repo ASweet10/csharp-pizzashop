@@ -3,13 +3,14 @@ using PizzaApi.Models;
 
 namespace PizzaApi.Data
 {
-    public class PizzaContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public PizzaContext(DbContextOptions<PizzaContext> options)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
         }
 
         public DbSet<Pizza> Pizzas { get; set; }  // Map to "Pizzas" table so controllers can query/update it
+        public DbSet<Order> Orders { get; set; }
     }
 }
