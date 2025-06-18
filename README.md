@@ -1,6 +1,7 @@
 # Pizza Shop (C#/Dotnet, React)
 ## Tech
 - C#/Dotnet Rest API
+- EF Core
 - React
 - TypeScript
 - Tailwind CSS
