@@ -24,7 +24,7 @@ function CheckoutPage() {
     };
 
     try {
-        const response = await fetch("http://localhost:5000/api/orders", {
+        const response = await fetch("http://localhost:5230/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order)
@@ -43,24 +43,26 @@ function CheckoutPage() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl mb-4">Your Order</h1>
-      {cartItems.map(item => (
-        <div key={item.id} className="flex justify-between mb-2">
-          <span>{item.name} x {item.quantity}</span>
-          <span>${item.price * item.quantity}</span>
-        </div>
-      ))}
-      <hr className="my-4" />
-      <p className="text-lg">Total: ${total}</p>
-      <p>Prep Time: {prepTime} mins</p>
-      <p>Delivery Time: {deliveryTime} mins</p>
-      <button
-        onClick={handlePlaceOrder}
-        className="bg-blue-600 text-white px-4 py-2 rounded mt-4"
-      >
-        Place Order
-      </button>
+    <div className="bg-gray-600 h-[100vh] text-white flex items-center justify-center">
+      <div className='flex flex-col pb-40 px-6 w-full md:w-1/2'>
+        <h1 className="text-3xl mb-4">Your Order</h1>
+        {cartItems.map(item => (
+          <div key={item.id} className="flex justify-between mb-2">
+            <span>{item.name} x {item.quantity}</span>
+            <span>${(item.price * item.quantity).toFixed(2)}</span>
+          </div>
+        ))}
+        <hr className="my-4" />
+        <p className="text-lg">Total: ${total.toFixed(2)}</p>
+        <p>Prep Time: {prepTime} mins</p>
+        <p>Delivery Time: {deliveryTime} mins</p>
+        <button
+          onClick={() => handlePlaceOrder()}
+          className="bg-blue-600 text-white px-4 py-2 rounded mt-4 cursor-pointer"
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import pizzaImg from '/pizza.png'
 import { useCart } from './CartContext'
 
 interface Pizza {
@@ -7,6 +6,7 @@ interface Pizza {
     name: string;
     price: number;
     imageUrl: string;
+    ingredients: string;
 }
 
 function Menu() {
@@ -18,6 +18,7 @@ function Menu() {
             id: pizza.id,
             name: pizza.name,
             price: pizza.price,
+            imgUrl: pizza.imageUrl,
             quantity: 1
         })
     }
@@ -42,19 +43,20 @@ function Menu() {
     }, [])
 
   return (
-      <div className='flex flex-col justify-center'>
-        <div className='flex justify-center'>
-            <img src={pizzaImg} alt="" className='animate-spin animate-duration-2000 animate-repeat-infinite hover:pause h-32 w-32' id="spinner"/>
-        </div>
-
-        <div className='grid grid-cols-1 md:grid-cols-3 text-center'>
+      <div className='flex flex-col justify-center pt-20 px-6 md:px-28 bg-gray-600 md:h-[100vh]'>
+        <div className='grid grid-cols-1 md:grid-cols-3 text-center gap-4 p-4'>
             { pizzas.length > 0 && (
                 pizzas.map((pizza) => (
-                    <div key={pizza.id} className='flex flex-col justify-center'>
-                        <h1 className='text-3xl font-semibold'>{pizza.name}</h1>
-                        <img src={pizzaImg} alt="" className='h-80 w-80 m-auto'/>
-                        <p>${pizza.price.toFixed(2)}</p>
-                        <button onClick={() => handleAddToCart(pizza)} className='bg-red-900 text-white cursor-pointer'>Add to Cart</button>
+                    <div key={pizza.id} className='flex flex-col md:flex-row justify-center items-center bg-gray-100'>
+                        <img src={pizza.imageUrl} alt="" className='w-80 m-auto rounded-sm py-6 px-4'/>
+                        <div className='flex flex-col py-4 px-2 text-left'>
+                            <div className='h-28 md:h-36'>
+                                <h1 className='text-2xl font-semibold'>{pizza.name}</h1>
+                                <p className='italic py-1'>{pizza.ingredients}</p>
+                                <p className='text-xl font-semibold text-red-800'> ${pizza.price.toFixed(2)}</p>
+                            </div>
+                            <button onClick={() => handleAddToCart(pizza)} className='bg-red-900 text-white cursor-pointer p-2 rounded-lg w-40 justify-center'>Add to Cart</button>
+                        </div>
                     </div>
                 ))
             )}

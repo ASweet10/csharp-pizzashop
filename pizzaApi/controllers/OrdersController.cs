@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaApi.Data;
+using PizzaApi.Services;
 
 namespace PizzaApi.Controllers
 {
@@ -8,10 +9,24 @@ namespace PizzaApi.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly EmailService _emailService;
 
-        public OrdersController(AppDbContext context) // Constructor dependency injection
+        public OrdersController(AppDbContext context, EmailService emailService) // Constructor dependency injection
         {
             _context = context;
+            _emailService = emailService;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Order>> GetOrder(int id)
+        {
+            var order = await _context.Orders.FindAsync(id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return order;
         }
 
         [HttpPost]
@@ -21,8 +36,7 @@ namespace PizzaApi.Controllers
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
-            var emailService = new EmailService();
-            emailService.SendOrderConfirmation(order.Email, "Thank you. Your order has been received.");
+            _emailService.SendOrderConfirmation(order.Email, order.ItemsJson);
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }

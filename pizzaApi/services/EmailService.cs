@@ -1,21 +1,31 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 
-public class EmailService
+namespace PizzaApi.Services
 {
-    public void SendOrderConfirmation(string toEmail, string body)
+    public class EmailService
     {
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Pizza Shop", "your_email@gmail.com"));
-        message.To.Add(MailboxAddress.Parse(toEmail));
-        message.Subject = "Order Confirmation";
+        private readonly IConfiguration _config;
+        public EmailService(IConfiguration config)
+        {
+            _config = config;
+        }
+        public void SendOrderConfirmation(string toEmail, string body)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Tony's Pizza Shop", "Tony_Boloneys123@gmail.com"));
+            message.To.Add(MailboxAddress.Parse(toEmail));
+            message.Subject = "Order Confirmation";
 
-        message.Body = new TextPart("plain") { Text = body };
+            message.Body = new TextPart("plain") { Text = body };
 
-        using var client = new SmtpClient();
-        client.Connect("smtp.gmail.com", 587, false);
-        client.Authenticate("your_email@gmail.com", "app_password");
-        client.Send(message);
-        client.Disconnect(true);
+            using (var client = new SmtpClient())
+            {
+                client.Connect("sandbox.smtp.mailtrap.io", 587, false);
+                client.Authenticate("cf9e11650e6a8b", "4fb5e0e1eb32e2");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+        }
     }
 }
