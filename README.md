@@ -2,6 +2,7 @@
 ## Tech
 - C#/Dotnet Rest API
 - EF Core
+- PostgreSQL
 - React
 - TypeScript
 - Tailwind CSS
