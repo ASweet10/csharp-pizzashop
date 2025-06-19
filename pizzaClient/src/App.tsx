@@ -1,5 +1,5 @@
 import './App.css'
-import Menu from './components/Menu'
+import HomePage from './pages/HomePage'
 import Navbar from './components/Navbar'
 import CheckoutPage from './pages/CheckoutPage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={ <Menu /> } />
+          <Route path="/" element={ <HomePage /> } />
           <Route path="/checkout" element={ <CheckoutPage /> } />
           <Route path="/thankyou" element={ <ThankYouPage /> } />
         </Routes>

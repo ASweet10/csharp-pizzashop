@@ -1,5 +1,5 @@
 import { useCart } from './CartContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
 import pizzaImg from '/pizza.png'
@@ -7,15 +7,16 @@ import pizzaImg from '/pizza.png'
 function Navbar() {
   const { cartItems } = useCart()
   const navigate = useNavigate()
+  const location = useLocation()
   const [ cartOpen, setCartOpen ] = useState(false)
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
-    <nav className="bg-gray-600 px-8 md:px-20 h-28">
-      <div className='flex justify-between items-center pt-4'>
+    <nav className="fixed justify-between top-0 bg-transparent px-8 md:px-20 h-28 z-50 w-[100vw]">
+      <div className='flex items-center justify-between pt-4'>
         <div className='flex items-center md:gap-3'>
-          <Link to="/" className='text-4xl text-white'>Tony Boloney's</Link>
+          <Link to="/" className={`text-4xl px-4 py-2 font-heading ${location.pathname === "/" ? "text-yellow-400" : "text-white"}`}>Tony Boloney's</Link>
           <img src={pizzaImg} alt="" className='animate-spin animate-duration-2000 animate-repeat-infinite h-20 w-20' id="spinner"/>
         </div>
         <div className="relative">
