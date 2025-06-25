@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PizzaApi.Controllers;
 using PizzaApi.Models;
 
 namespace PizzaApi.Data
@@ -12,5 +13,6 @@ namespace PizzaApi.Data
 
         public DbSet<Pizza> Pizzas { get; set; }  // Map to "Pizzas" table so controllers can query/update it
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Appetizer> Appetizers { get; set; }
     }
 }

@@ -14,7 +14,8 @@ const config: Config = {
       fontFamily: {
         heading: ["Bebas Neue", 'sans-serif'],
         body: ["Poppins", 'sans-serif'],
-        inter: ["Inter", 'sans-serif']
+        dancing: ["Dancing Script", 'sans-serif'],
+        cedar: ["Cedarville Cursive", "sans-serif"],
       }
     },
   },

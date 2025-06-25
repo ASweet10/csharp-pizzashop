@@ -1,6 +1,6 @@
 namespace PizzaApi.Models
 {
-    public class Pizza
+    public class Appetizer
     {
         public int Id { get; set; }  // Primary Key in EF
         public string Name { get; set; } = string.Empty;

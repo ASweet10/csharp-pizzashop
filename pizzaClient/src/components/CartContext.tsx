@@ -3,9 +3,8 @@ import { createContext, useContext, useState, useEffect } from "react"
 export interface CartItem {
     id: number;
     name: string;
-    quantity: number;
     price: number;
-    imgUrl: string;
+    quantity: number;
 }
 
 interface CartContextType {

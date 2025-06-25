@@ -4,3 +4,10 @@
   --font-heading: "Bebas Neue", "sans-serif"; 
   --font-body: "Poppins", "sans-serif";
 }
+
+.font-dancing {
+  font-family: 'Dancing Script', sans-serif;
+}
+.font-cedar {
+  font-family: 'Cedarville Cursive', sans-serif;
+}

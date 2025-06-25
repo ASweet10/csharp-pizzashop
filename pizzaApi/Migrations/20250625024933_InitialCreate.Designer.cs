@@ -12,7 +12,7 @@ using PizzaApi.Data;
 namespace pizzaApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250616231908_InitialCreate")]
+    [Migration("20250625024933_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -52,6 +52,30 @@ namespace pizzaApi.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("PizzaApi.Models.Appetizer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ingredients")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Appetizers");
+                });
+
             modelBuilder.Entity("PizzaApi.Models.Pizza", b =>
                 {
                     b.Property<int>("Id")
@@ -60,7 +84,7 @@ namespace pizzaApi.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("Ingredients")
                         .IsRequired()
                         .HasColumnType("text");
 

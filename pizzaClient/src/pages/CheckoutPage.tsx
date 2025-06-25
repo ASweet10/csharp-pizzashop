@@ -43,28 +43,33 @@ function CheckoutPage() {
   };
 
   return (
-    <div className="bg-gray-600 h-[100vh] text-white flex items-center justify-center">
+    <div className="h-[100vh] text-white flex items-center justify-center bg-cover" style={{ backgroundImage: "url('./charcoal.jpg')" }}>
       <div className='flex flex-col pb-40 px-6 w-full md:w-1/2'>
-        <h1 className="text-3xl mb-4">Your Order</h1>
+        <h1 className="text-5xl font-heading mb-4 text-center">Your Order</h1>
         {cartItems.map(item => (
-          <div key={item.id} className="flex justify-between mb-2">
-            <span>{item.name} x {item.quantity}</span>
-            <span>${(item.price * item.quantity).toFixed(2)}</span>
+          <div key={item.id} className="flex justify-between items-center mb-2">
+            <div className='flex items-center gap-6'>
+              <span className='text-2xl font-body'>{item.name} x {item.quantity}</span>
+              {/* <img src={item.imgUrl} className='h-28'/> */}
+            </div>
+            <span className='text-2xl font-body'>${(item.price * item.quantity).toFixed(0)}</span>
           </div>
         ))}
         <hr className="my-4" />
-        <p className="text-lg">Total: ${total.toFixed(2)}</p>
-        <p>Prep Time: {prepTime} mins</p>
-        <p>Delivery Time: {deliveryTime} mins</p>
-        <button
-          onClick={() => handlePlaceOrder()}
-          className="bg-blue-600 text-white px-4 py-2 rounded mt-4 cursor-pointer"
-        >
-          Place Order
-        </button>
+        <div className='flex flex-col justify-center text-center items-center'>
+          <p className="text-xl">Total: ${total.toFixed(0)}</p>
+          <p className='text-xl'>Prep Time: {prepTime} mins</p>
+          <p className='text-xl'>Delivery Time: {deliveryTime} mins</p>
+          <button
+            onClick={() => handlePlaceOrder()}
+            className="bg-blue-600 text-white text-2xl font-body px-4 py-2 rounded mt-4 cursor-pointer w-1/3"
+          >
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default CheckoutPage
