@@ -53,12 +53,12 @@ function CheckoutPage() {
               <span className='text-2xl font-body'>{item.name} x {item.quantity}</span>
               {/* <img src={item.imgUrl} className='h-28'/> */}
             </div>
-            <span className='text-2xl font-body'>${(item.price * item.quantity).toFixed(0)}</span>
+            <span className='text-2xl font-body'>${(item.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
         <hr className="my-4" />
         <div className='flex flex-col justify-center text-center items-center'>
-          <p className="text-xl">Total: ${total.toFixed(0)}</p>
+          <p className="text-xl">Total: ${total.toFixed(2)}</p>
           <p className='text-xl'>Prep Time: {prepTime} mins</p>
           <p className='text-xl'>Delivery Time: {deliveryTime} mins</p>
           <button
