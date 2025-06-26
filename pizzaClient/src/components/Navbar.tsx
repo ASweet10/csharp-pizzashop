@@ -2,7 +2,6 @@ import { useCart } from './CartContext'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
-import pizzaImg from '/pizza.png'
 
 type CartItem = {
     id: number;
