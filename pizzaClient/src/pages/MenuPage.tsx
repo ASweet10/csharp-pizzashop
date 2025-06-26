@@ -14,23 +14,27 @@ interface Appetizer {
     price: number;
     ingredients: string;
 }
+{/*
 type CartItem = {
     id: number;
     name: string;
     price: number;
+    type: string;
     quantity?: number;
 }
+*/}
 
 function MenuPage() {
     const { addToCart } = useCart()
     const [pizzas, setPizzas] = useState<Pizza[]>([])
     const [appetizers, setAppetizers] = useState<Appetizer[]>([])
 
-    const handleAddToCart = (item: CartItem) => {
+    const handleAddToCart = (item: Pizza | Appetizer, type: 'pizza' | 'appetizer') => {
         addToCart({
             id: item.id,
             name: item.name,
             price: item.price,
+            type,
             quantity: 1
         })
     }
@@ -81,7 +85,7 @@ function MenuPage() {
                                         </div>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => handleAddToCart(pizza)}
+                                        <button onClick={() => handleAddToCart(pizza, 'pizza')}
                                             className='text-xl font-semibold cursor-pointer border-2 bg-yellow-600 hover:bg-yellow-700 px-4 py-2'
                                         >
                                             Add to cart
@@ -107,7 +111,7 @@ function MenuPage() {
                                         </div>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => handleAddToCart(appetizer)}
+                                        <button onClick={() => handleAddToCart(appetizer, 'appetizer')}
                                             className='text-xl font-semibold cursor-pointer border-2 bg-yellow-600 hover:bg-yellow-700 px-4 py-2'
                                         >
                                             Add to cart
