@@ -65,8 +65,9 @@ function MenuPage() {
     }, [])
     return (
         <div className="min-h-[100vh] bg-cover" style={{ backgroundImage: "url('./charcoal.jpg')" }}>
-            <div className="flex flex-col gap-20 justify-start h-full w-full pt-40 pb-20 px-8 md:px-40">
-                <h1 className="text-8xl font-bold text-center text-white font-heading">Menu</h1>
+            <h1 className="text-8xl font-bold text-center text-white font-heading pt-40">Menu</h1>
+            <div className="flex flex-col md:flex-row gap-20 justify-start h-full w-full py-20 px-8 md:px-40">
+
 
                 <div className="flex flex-col text-white w-full">
                     <h1 className="text-5xl font-bold mb-4 font-heading p-8 text-center md:text-left">Pizza</h1>
@@ -74,7 +75,7 @@ function MenuPage() {
                         { pizzas.length > 0 && (
                             pizzas.map((pizza) => (
                                 <div key={pizza.id} className='flex flex-col md:flex-row gap-2 items-center'>
-                                    <div className='flex flex-col py-1 px-4 md:px-8 text-left w-80 md:w-96'>
+                                    <div className='flex flex-col py-1 px-4 md:px-8 text-left w-80 md:w-[450px]'>
                                         <div className='group gap-2 px-4 md:px-0 text-white flex flex-col'>
                                             <h1 className='text-3xl font-bold font-dancing'>{pizza.name}</h1>
                                             <p className='italic font-body'>{pizza.ingredients}</p>
