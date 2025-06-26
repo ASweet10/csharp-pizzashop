@@ -9,7 +9,7 @@
 - Email confirmation via Mailkit library & Mailtrap inbox
 - Context API for cart/checkout
 
-## Email Example
+## Order Confirmation Email
 ![Order Confirmation Email](pizzaClient/public/EmailExample.png)
   
 ## Demo
