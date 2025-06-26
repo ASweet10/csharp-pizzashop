@@ -62,7 +62,7 @@ function CheckoutPage() {
           <p className='text-xl'>Delivery Time: {deliveryTime} mins</p>
           <button
             onClick={() => handlePlaceOrder()}
-            className="bg-blue-600 text-white text-2xl font-body px-4 py-2 rounded mt-4 cursor-pointer w-1/3"
+            className="bg-blue-600 text-white text-lg md:text-2xl font-body px-3 py-1 rounded mt-4 cursor-pointer w-1/3"
           >
             Place Order
           </button>

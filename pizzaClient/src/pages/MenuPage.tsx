@@ -69,13 +69,13 @@ function MenuPage() {
                 <h1 className="text-8xl font-bold text-center text-white font-heading">Menu</h1>
 
                 <div className="flex flex-col text-white w-full">
-                    <h1 className="text-5xl font-bold mb-4 font-heading p-8">Pizza</h1>
-                    <div className='flex flex-col gap-2'>
+                    <h1 className="text-5xl font-bold mb-4 font-heading p-8 text-center md:text-left">Pizza</h1>
+                    <div className='flex flex-col gap-8'>
                         { pizzas.length > 0 && (
                             pizzas.map((pizza) => (
-                                <div key={pizza.id} className='flex flex-col md:flex-row gap-8 items-center'>
-                                    <div className='flex flex-col py-1 px-8 text-left w-96'>
-                                        <div className='group gap-4 px-4 md:px-0 text-white flex flex-col'>
+                                <div key={pizza.id} className='flex flex-col md:flex-row gap-2 items-center'>
+                                    <div className='flex flex-col py-1 px-4 md:px-8 text-left w-80 md:w-96'>
+                                        <div className='group gap-2 px-4 md:px-0 text-white flex flex-col'>
                                             <h1 className='text-3xl font-bold font-dancing'>{pizza.name}</h1>
                                             <p className='italic font-body'>{pizza.ingredients}</p>
                                             <p className='text-xl font-semibold'> {pizza.price.toFixed(0)}</p>
@@ -95,17 +95,16 @@ function MenuPage() {
                 </div>
 
                 <div className="flex flex-col text-white w-full">
-                    <h1 className="text-5xl font-bold mb-4 font-heading p-8">Appetizers</h1>
-                    <div className='flex flex-col gap-2'>
+                    <h1 className="text-5xl font-bold mb-4 font-heading p-8 text-center md:text-left">Appetizers</h1>
+                    <div className='flex flex-col gap-8'>
                         { appetizers.length > 0 && (
                             appetizers.map((appetizer) => (
-                                <div key={appetizer.id} className='flex flex-col md:flex-row gap-8 items-center'>
-                                    <div className='flex flex-col py-1 px-8 text-left w-96'>
-                                        <div className='group gap-4 px-4 md:px-0 text-white flex flex-col'>
+                                <div key={appetizer.id} className='flex flex-col md:flex-row gap-2 items-center'>
+                                    <div className='flex flex-col py-1 px-4 md:px-8 text-left w-80 md:w-96'>
+                                        <div className='group gap-2 px-4 md:px-0 text-white flex flex-col'>
                                             <h1 className='text-3xl font-bold font-dancing'>{appetizer.name}</h1>
                                             <p className='italic font-body'>{appetizer.ingredients}</p>
                                             <p className='text-xl font-semibold'> {appetizer.price.toFixed(0)}</p>
-
                                         </div>
                                     </div>
                                     <div className="">
@@ -121,7 +120,6 @@ function MenuPage() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }
