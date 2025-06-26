@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useCart } from '../components/CartContext'
+const API_URL = import.meta.env.VITE_API_URL;
 
 interface Pizza {
     id: number;
@@ -34,14 +35,12 @@ function MenuPage() {
         })
     }
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const [pizzaRes, appetizerRes] = await Promise.all([
-                    fetch("http://localhost:5230/api/pizza"),
-                    fetch("http://localhost:5230/api/appetizer")
+                    fetch(`${API_URL}/api/pizza`),
+                    fetch(`${API_URL}/api/appetizer`)
                 ])
 
                 if (!pizzaRes.ok || !appetizerRes.ok) {

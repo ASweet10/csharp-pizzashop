@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../components/CartContext'
 import { useEffect, useState } from 'react'
+const API_URL = import.meta.env.VITE_API_URL;
 
 function CheckoutPage() {
   const { cartItems, clearCart } = useCart()
@@ -24,7 +25,7 @@ function CheckoutPage() {
     };
 
     try {
-        const response = await fetch("http://localhost:5230/api/orders", {
+        const response = await fetch(`${API_URL}/api/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order)
