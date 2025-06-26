@@ -15,7 +15,6 @@ obj/
 # Secrets & configs
 appsettings.Development.json
 secrets.json
-appsettings.json
 
 # Entity Framework Migrations metadata (if needed)
 _MigrationsHistory/
