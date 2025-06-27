@@ -2,13 +2,7 @@ import { useCart } from './CartContext'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
-
-type CartItem = {
-    id: number;
-    name: string;
-    price: number;
-    quantity?: number;
-}
+import type { CartItem } from "../types"
 
 function Navbar() {
   const { cartItems, removeFromCart } = useCart()
@@ -16,10 +10,11 @@ function Navbar() {
   const location = useLocation()
   const [ cartOpen, setCartOpen ] = useState(false)
 
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+  const totalItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+  const totalItemPrice = cartItems.reduce((sum, item) => { return sum + (item.quantity * item.price); }, 0);
 
   const handleRemoveFromCart = (item: CartItem) => {
-      removeFromCart(item.id)
+    removeFromCart(item)
   }
   return (
     <nav className="fixed justify-between top-0 bg-transparent px-8 md:px-20 h-28 z-50 w-[100vw]">
@@ -31,7 +26,7 @@ function Navbar() {
         </div>
         <div className="relative">
           <button onClick={() => setCartOpen(!cartOpen)} className="relative items-center flex gap-2 text-2xl cursor-pointer text-gray-200">
-            <FaShoppingCart /> ({totalItems})
+            <FaShoppingCart /> ({totalItemCount})
           </button>
 
           {cartOpen && (
@@ -40,7 +35,7 @@ function Navbar() {
                 <p>Your cart is empty.</p>
               ) : (
                 cartItems.map(item => (
-                  <div key={item.id} className="flex mb-2 gap-2 w-full">
+                  <div key={`${item.type}-${item.id}`} className="flex mb-2 gap-2 w-full">
                     <div className='flex flex-row w-full items-center gap-4'>
                       <span className='text-lg font-bold'>{item.quantity} {item.name}</span>
                       <div className='flex items-center gap-4'>
@@ -55,6 +50,10 @@ function Navbar() {
                   </div>
                 ))
               )}
+              <div className="flex gap-4 mt-4 text-xl font-bold">
+                <span>Total:</span>
+                <span>${totalItemPrice.toFixed(2)}</span>
+              </div>
               <hr className="my-2" />
               <button
                 onClick={() => {

@@ -1,19 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react"
-
-export interface CartItem {
-    id: number;
-    name: string;
-    price: number;
-    type: string;
-    quantity: number;
-}
-
-interface CartContextType {
-    cartItems: CartItem[];
-    addToCart: (item: CartItem) => void;
-    removeFromCart: (id: number) => void;
-    clearCart: () => void;
-}
+import type { CartItem, CartContextType } from "../types"
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -46,8 +32,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  const removeFromCart = (id: number) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
+  const removeFromCart = (item: CartItem) => {
+    setCartItems(prev => 
+      prev.filter(ci => !(ci.id === item.id && ci.type === item.type))
+    );
   };
 
   const clearCart = () => {
