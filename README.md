@@ -6,7 +6,7 @@
 - React
 - TypeScript
 - Tailwind CSS
-- Email confirmation via Mailkit library & Mailtrap inbox
+- Mailkit & Mailtrap email confirmation
 - Context API for cart/checkout
 - AWS EC2, RDS deployments
 
