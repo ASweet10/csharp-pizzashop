@@ -33,9 +33,13 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const addToCart = (item: CartItem) => {
     setCartItems(prev => {
-      const existing = prev.find(ci => ci.id === item.id);
+      const existing = prev.find(ci => ci.id === item.id && ci.type == item.type);
       if (existing) {
-        return prev.map(ci => ci.id === item.id ? { ...ci, quantity: ci.quantity + 1 } : ci);
+        return prev.map(ci => 
+          ci.id === item.id && ci.type === item.type
+          ? { ...ci, quantity: ci.quantity + 1 } 
+          : ci
+        );
       } else {
         return [...prev, { ...item, quantity: 1 }];
       }
