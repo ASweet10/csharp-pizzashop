@@ -8,6 +8,7 @@
 - Tailwind CSS
 - Email confirmation via Mailkit library & Mailtrap inbox
 - Context API for cart/checkout
+- AWS EC2, RDS deployments
 
 ## Order Confirmation Email
 ![Order Confirmation Email](pizzaClient/public/EmailExample.png)
