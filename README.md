@@ -18,11 +18,11 @@
 ![Checkout](pizzaClient/public/checkout.jpg)
 ## Mailtrap order confirmation
 ![Mailtrap](pizzaClient/public/mailtrap-confirmation.png)
-## Git Bash - EC2 Client
+## EC2 Client
 ![EC2Front](pizzaClient/public/ec2frontend.png)
-## Git Bash - EC2 Server
+## EC2 Server
 ![EC2Back](pizzaClient/public/ec2backend.png)
-## Git Bash - EC2 into RDS Postgresql DB
+## RDS Postgresql DB
 ![RDS](pizzaClient/public/ec2RDS.png)
 ## RDS Dashboard in AWS
 ![AWSRDS](pizzaClient/public/rdsconsole.png)
