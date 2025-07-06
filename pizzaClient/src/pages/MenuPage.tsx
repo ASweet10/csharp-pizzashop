@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useCart } from '../components/CartContext'
 const API_URL = import.meta.env.VITE_API_URL;
 import type { Pizza, Appetizer } from "../types"
-
+import { FaShoppingCart } from "react-icons/fa"
 
 function MenuPage() {
     const { addToCart } = useCart()
@@ -49,7 +49,6 @@ function MenuPage() {
             <h1 className="text-8xl font-bold text-center text-white font-heading pt-40">Menu</h1>
             <div className="flex flex-col md:flex-row gap-4 justify-start h-full w-full py-20 lg:px-40">
 
-
                 <div className="flex flex-col text-white w-full">
                     <h1 className="text-5xl font-bold mb-4 font-heading p-8 text-center md:text-left">Pizza</h1>
                     <div className='flex flex-col gap-8'>
@@ -65,9 +64,9 @@ function MenuPage() {
                                     </div>
                                     <div className="">
                                         <button onClick={() => handleAddToCart(pizza, 'pizza')}
-                                            className='text-2xl font-semibold font-heading cursor-pointer border-2 bg-yellow-700 hover:bg-yellow-600 px-4 py-2'
+                                            className='flex flex-row gap-2 text-2xl font-semibold font-heading cursor-pointer border-2 bg-yellow-700 hover:bg-yellow-600 px-4 py-2'
                                         >
-                                            Add to cart
+                                            <FaShoppingCart /> Add to cart
                                         </button>
                                     </div>
                                 </div>
@@ -91,9 +90,9 @@ function MenuPage() {
                                     </div>
                                     <div className="">
                                         <button onClick={() => handleAddToCart(appetizer, 'appetizer')}
-                                            className='text-2xl font-semibold font-heading cursor-pointer border-2 bg-yellow-700 hover:bg-yellow-600 px-4 py-2'
+                                            className='flex flex-row gap-2 text-2xl font-semibold font-heading cursor-pointer border-2 bg-yellow-700 hover:bg-yellow-600 px-4 py-2'
                                         >
-                                            Add to cart
+                                            <FaShoppingCart /> Add to cart
                                         </button>
                                     </div>
                                 </div>

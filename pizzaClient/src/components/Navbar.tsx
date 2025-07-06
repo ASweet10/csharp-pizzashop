@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
 import type { CartItem } from "../types"
+import { RiDeleteBin6Line } from "react-icons/ri"
 
 function Navbar() {
   const { cartItems, removeFromCart } = useCart()
@@ -39,32 +40,33 @@ function Navbar() {
                 <>
                   { cartItems.map(item => (
                     <div key={`${item.type}-${item.id}`} className="flex mb-2 gap-2 w-full">
-                      <div className='flex flex-row w-full items-center gap-4'>
-                        <span className='text-lg font-bold'>{item.quantity} {item.name}</span>
-                        <div className='flex items-center gap-4'>
-                          <span className=''>${(item.quantity * item.price).toFixed(2)}</span>
-                          <button onClick={() => handleRemoveFromCart(item)}
-                            className='bg-red-600 text-white px-4 py-2 rounded text-xl h-12 cursor-pointer'
-                          >
-                            X
-                          </button>
+                      <div className='flex flex-row w-full items-center'>
+                        <button onClick={() => handleRemoveFromCart(item)} className='bg-transparent px-4 py-2 rounded text-xl h-12 cursor-pointer'>
+                          <RiDeleteBin6Line className='text-red-600' />
+                        </button>
+                        <span className='text-lg font-bold w-60'>{item.name} ({item.quantity})</span>
+                        <div className='flex items-center gap-1'>
                         </div>
+                        <span className='text-lg font-semibold mr-2'>${(item.quantity * item.price).toFixed(2)}</span>
                       </div>
                     </div>
                   ))}
 
-                  <div className="flex gap-4 mt-4 text-xl font-bold">
+                  <div className="flex gap-4 justify-end text-xl font-bold m-3">
                     <span>Total:</span>
                     <span>${totalItemPrice.toFixed(2)}</span>
                   </div>
 
                   <hr className="my-2" />
-                  
-                  <button onClick={() => { setCartOpen(false); navigate('/checkout'); }}
-                    className="bg-green-600 text-white px-4 py-2 rounded text-lg mt-2 cursor-pointer"
-                  >
-                    Checkout
-                  </button>
+
+                  <div className='flex justify-center'>
+                    <button onClick={() => { setCartOpen(false); navigate('/checkout'); }}
+                      className="justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded text-xl font-semibold mt-2 cursor-pointer w-40"
+                    >
+                      Checkout
+                    </button>
+                  </div>
+
                 </>
               )}
             </div>
