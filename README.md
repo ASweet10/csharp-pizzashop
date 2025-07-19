@@ -1,6 +1,6 @@
 # Pizza Shop (C#/Dotnet, React)
 ## Tech
-- C#/Dotnet Rest API
+- C#/.Net 8 Rest API
 - EF Core
 - PostgreSQL
 - React
