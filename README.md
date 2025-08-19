@@ -1,5 +1,4 @@
 # Pizza Shop (C#/Dotnet, React)
-## Tech
 - C#/.Net 8 Rest API
 - EF Core
 - PostgreSQL
@@ -10,9 +9,9 @@
 - Context API for cart/checkout
 - AWS EC2, RDS deployments
 
-## Home Page
+## Home
 ![Home](pizzaClient/public/home.jpg)
-## Menu Page
+## Menu
 ![Menu](pizzaClient/public/menu.jpg)
 ## Checkout
 ![Checkout](pizzaClient/public/checkout.jpg)
